@@ -1,0 +1,78 @@
+D:\Android\...
+https://www.youtube.com/watch?v=W_ERir8_vI4
+http://stackoverflow.com/questions/4207709/problems-trying-to-get-usb-debugging-working-on-windows-7-android
+http://stackoverflow.com/questions/13285670/how-to-add-android-tools-dir-to-windows-7-path
+
+adb device //check for device connected and permission
+ctrl_shift_o //import missing modules
+fragment_main.xml = main.xml
+get exception in app
+
+tricks:
+ctrl shift O: auto import missing modules
+ctrl shift f: auto format content
+
+to make button center
+android:layout_gravity="center_horizontal"		// set layout to shown
+android:layout_centerInParent="true"			// make paretn layout center = true
+android:layout_width="250dp"					// specify width or match_parent, if later, will fill out the entire screen width
+android:layout_height="wrap_content"			// height only up to max height of content
+
+/*** Button declaration in fragment_main.xml
+Instead of onCreate() move all ur initialization into onCreateView() as those buttons and textview is in ur fragment_main.xml 
+thats why u got NPE as those buttons and textview is not the part of activity_main.xml.
+
+/*** Activity life cycle
+onCreate() //set up threads, layouts, contentView, variables, view
+call onStart(), onResume()
+then Activity runs then user can use
+
+//splash will go on pause as it calls MainActivity
+// save states of current apps at onPause() if interrupt from another apps
+
+/*** Sound, music handling
+Soundpool: 1-2 secs
+MediaPlayer: longer, handle music
+
+/*** Class.forName()
+a way to create a class dynamically since we may not know the class definition/name
+during compile time, allow for user input/ other app input and make a class at
+runtime
+Mostly for making JDBC connection (?)
+***Need to be in try/catch***
+
+/***Make selection/menu
+With a new class, put it into xml with default macro and path
+Create a list, populated with options
+Using Class.forName() to dynamically create class based on user input
+Make an intent based on the newly created class and current object (currClass.this)
+Call startActivity() to go into the other activity
+
+/*** Set weight for each buttons
+weigthSum = "100" // easier for percentage
+// inverted weight, 70 weight is smaller than 30 weight
+// for individual buttons
+layout_weight = "30"
+layout_weight = "70"	// etc
+
+/*** Padding, adding distance from buttons/inputs, looks cleaner
+
+/*** New activity needs new manifest declaration
+/*** Scroll View allows scrolling through all items, need Linear Layout
+as children
+/*** Email reference = http://www.mybringback.com/series/android-thenewboston/
+
+/*** Passing data from one class (activity) to another
+ie: EditText is input, get data from view, cast to EditText
+EditText_class.getText().toString() then store into a Bundle
+Bundle_class.putString("key", EditText_content)
+// Send this Bundle to another class (activity) using Intent
+Intent a = new Intent(Current_class.this, Receiving_class.class)
+// actually put Bundle into Intent
+a.putExtras(Bundle);
+
+/*** Receiving data from another class (activity)
+ie: EditText is input, get data from view, cast to EditText 
+//make a temp Bundle to extract extras
+Bundle b = getIntent().getExtras()
+// get string by b.getString("key")
